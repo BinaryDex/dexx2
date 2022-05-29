@@ -446,7 +446,15 @@ end)
 end)
 
 playersection:addSlider('Walkspeed', 23, 0, 200, function(value)
-        game.Players.LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed = value
+        _G.speed = value
+end)
+
+playersection:addToggle('Toggle Walkspeed', false, function(state)
+	_G.wtoggle = state
+	while _G.wtoggle == true do
+		game.Players.LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed = _G.speed
+        wait()
+	end
 end)
 
 playersection:addToggle('Bhop', false, function(state)
